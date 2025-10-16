@@ -1,14 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://j8jh4hqnt6f3"]
+[gd_scene load_steps=3 format=3 uid="uid://j8jh4hqnt6f3"]
+
+[ext_resource type="Script" uid="uid://cun7hr3ybtba3" path="res://menu_manager.gd" id="1_5b7ti"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7yr4w"]
 font_size = 64
 
-[node name="Main Menu" type="Panel"]
+[node name="Main Menu" type="TextureRect"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_5b7ti")
 
 [node name="VBoxContainer" type="CenterContainer" parent="."]
 layout_mode = 0
@@ -26,26 +29,31 @@ offset_top = 102.0
 offset_right = 1152.0
 offset_bottom = 648.0
 
-[node name="HFlowContainer" type="HFlowContainer" parent="CenterContainer"]
+[node name="ButtonContainer" type="HFlowContainer" parent="CenterContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="PlayButton" type="Button" parent="CenterContainer/HFlowContainer"]
+[node name="PlayButton" type="Button" parent="CenterContainer/ButtonContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
 text = "PLAY"
 
-[node name="SettingsButton" type="Button" parent="CenterContainer/HFlowContainer"]
+[node name="SettingsButton" type="Button" parent="CenterContainer/ButtonContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
 text = "SETTINGS"
 
-[node name="CreditsButton" type="Button" parent="CenterContainer/HFlowContainer"]
+[node name="CreditsButton" type="Button" parent="CenterContainer/ButtonContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
 text = "CREDITS"
 
-[node name="QuitButton" type="Button" parent="CenterContainer/HFlowContainer"]
+[node name="QuitButton" type="Button" parent="CenterContainer/ButtonContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
 text = "QUIT"
+
+[connection signal="pressed" from="CenterContainer/ButtonContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="CenterContainer/ButtonContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="CenterContainer/ButtonContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="CenterContainer/ButtonContainer/QuitButton" to="." method="_on_quit_button_pressed"]
