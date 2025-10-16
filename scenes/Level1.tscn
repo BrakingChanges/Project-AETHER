@@ -1,0 +1,79 @@
+[gd_scene load_steps=8 format=3 uid="uid://8y4kn46vwipu"]
+
+[ext_resource type="PackedScene" uid="uid://c4wtjwol4kuj3" path="res://scenes/BaseLevel.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://d13ue4kymon4c" path="res://scenes/Player.tscn" id="2_bwv4p"]
+[ext_resource type="Texture2D" uid="uid://dslidc6vc0xnl" path="res://assets/10.png" id="2_odhdn"]
+
+[sub_resource type="RectangleShape2D" id="1"]
+size = Vector2(800, 50)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_bwv4p"]
+
+[sub_resource type="RectangleShape2D" id="2"]
+size = Vector2(150, 20)
+
+[sub_resource type="RectangleShape2D" id="3"]
+size = Vector2(140, 18)
+
+[node name="Level1" instance=ExtResource("1")]
+
+[node name="10" type="Sprite2D" parent="." index="0"]
+position = Vector2(259, 174)
+scale = Vector2(1.415895, 1.4158951)
+texture = ExtResource("2_odhdn")
+
+[node name="PlayerSpawn" parent="." index="1"]
+position = Vector2(-350, 100)
+
+[node name="Goal" parent="." index="2"]
+position = Vector2(700, -50)
+
+[node name="Ground" type="StaticBody2D" parent="." index="3"]
+position = Vector2(0, 200)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" index="0"]
+shape = SubResource("1")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground" index="1"]
+position = Vector2(3.0000153, -1.9999905)
+scale = Vector2(786, 41.99999)
+texture = SubResource("PlaceholderTexture2D_bwv4p")
+
+[node name="Platform1" type="StaticBody2D" parent="." index="4"]
+position = Vector2(200, 100)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform1" index="0"]
+shape = SubResource("2")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Platform1" index="1"]
+position = Vector2(-8.106232e-06, 1.9073486e-06)
+scale = Vector2(135.99998, 16.999971)
+texture = SubResource("PlaceholderTexture2D_bwv4p")
+
+[node name="Platform2" type="StaticBody2D" parent="." index="5"]
+position = Vector2(500, 50)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2" index="0"]
+shape = SubResource("3")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Platform2" index="1"]
+position = Vector2(4.999939, 3.8146973e-06)
+scale = Vector2(135.99998, 16.999971)
+texture = SubResource("PlaceholderTexture2D_bwv4p")
+
+[node name="Platform3" type="StaticBody2D" parent="." index="6"]
+position = Vector2(694, -6)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform3" index="0"]
+position = Vector2(5, 0)
+shape = SubResource("3")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Platform3" index="1"]
+position = Vector2(4.999939, 3.8146973e-06)
+scale = Vector2(135.99998, 16.999971)
+texture = SubResource("PlaceholderTexture2D_bwv4p")
+
+[node name="Player" parent="." index="7" instance=ExtResource("2_bwv4p")]
+position = Vector2(-5, 133)
+
+[connection signal="body_entered" from="Goal" to="." method="_on_goal_body_entered"]

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4wtjwol4kuj3"]
+
+[ext_resource type="Script" uid="uid://cbywl6dhd2l6v" path="res://scripts/base_level.gd" id="1"]
+
+[sub_resource type="CircleShape2D" id="1"]
+radius = 34.0147
+
+[node name="BaseLevel" type="Node2D"]
+script = ExtResource("1")
+
+[node name="PlayerSpawn" type="Marker2D" parent="."]
+
+[node name="Goal" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goal"]
+shape = SubResource("1")
