@@ -1,0 +1,40 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://dybosh6ltato1"]
+
+[ext_resource type="FontFile" uid="uid://chr48y8atvstl" path="res://Michroma-Regular.ttf" id="1_y77lc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qgxfu"]
+bg_color = Color(0.101960786, 0.6, 0.6, 0)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1qs7s"]
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 0.8)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_818bm"]
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y77lc"]
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 0.6)
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[resource]
+Button/fonts/font = ExtResource("1_y77lc")
+Button/styles/focus = SubResource("StyleBoxFlat_qgxfu")
+Button/styles/hover = SubResource("StyleBoxFlat_1qs7s")
+Button/styles/hover_pressed = SubResource("StyleBoxFlat_818bm")
+Button/styles/normal = SubResource("StyleBoxFlat_y77lc")
+Label/fonts/font = ExtResource("1_y77lc")
