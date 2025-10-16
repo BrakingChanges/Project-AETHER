@@ -1,0 +1,156 @@
+[gd_scene load_steps=6 format=3 uid="uid://dwnlkqb6v6bv2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v4ih8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_rbmmp"]
+font_size = 26
+
+[sub_resource type="DPITexture" id="DPITexture_v4ih8"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><circle cx=\"8\" cy=\"8\" r=\"7\" fill=\"#fefefe\" fill-opacity=\".75\"/></svg>
+"
+base_scale = 2.48
+
+[sub_resource type="DPITexture" id="DPITexture_i47rn"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><circle cx=\"8\" cy=\"8\" r=\"7\" fill=\"#fefefe\"/></svg>
+"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rbmmp"]
+content_margin_top = 35.0
+content_margin_right = 400.0
+bg_color = Color(0.25808161, 0.25808161, 0.25808161, 0.6)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 6
+
+[node name="Panel" type="Panel"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_top = 954.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="ApplyChangesButton" type="Button" parent="HBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "APPLY CHANGES"
+
+[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="DiscardChangesButton" type="Button" parent="HBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "DISCARD"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 954.0
+
+[node name="TabContainer" type="TabContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+current_tab = 0
+
+[node name="Graphics" type="Panel" parent="MarginContainer/TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/TabContainer/Graphics"]
+layout_mode = 0
+offset_right = 1880.0
+offset_bottom = 815.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/TabContainer/Graphics/CenterContainer"]
+layout_mode = 2
+
+[node name="HFlowContainer" type="HSplitContainer" parent="MarginContainer/TabContainer/Graphics/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="CheckBox" type="CheckBox" parent="MarginContainer/TabContainer/Graphics/CenterContainer/VBoxContainer/HFlowContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 53
+theme_override_styles/normal = SubResource("StyleBoxEmpty_v4ih8")
+text = "Fullscreen"
+
+[node name="Audio" type="Panel" parent="MarginContainer/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/TabContainer/Audio"]
+layout_mode = 0
+offset_right = 1880.0
+offset_bottom = 815.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/TabContainer/Audio/CenterContainer"]
+layout_mode = 2
+
+[node name="HFlowContainer" type="HSplitContainer" parent="MarginContainer/TabContainer/Audio/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/TabContainer/Audio/CenterContainer/VBoxContainer/HFlowContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/TabContainer/Audio/CenterContainer/VBoxContainer/HFlowContainer/CenterContainer"]
+layout_mode = 2
+text = "Master Volume"
+label_settings = SubResource("LabelSettings_rbmmp")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/TabContainer/Audio/CenterContainer/VBoxContainer/HFlowContainer"]
+layout_mode = 2
+
+[node name="HSlider" type="HSlider" parent="MarginContainer/TabContainer/Audio/CenterContainer/VBoxContainer/HFlowContainer/MarginContainer"]
+layout_mode = 2
+theme_override_icons/grabber = SubResource("DPITexture_v4ih8")
+theme_override_icons/grabber_highlight = SubResource("DPITexture_i47rn")
+theme_override_styles/slider = SubResource("StyleBoxFlat_rbmmp")
+
+[node name="HFlowContainer2" type="HSplitContainer" parent="MarginContainer/TabContainer/Audio/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/TabContainer/Audio/CenterContainer/VBoxContainer/HFlowContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/TabContainer/Audio/CenterContainer/VBoxContainer/HFlowContainer2/CenterContainer"]
+layout_mode = 2
+text = "SFX"
+label_settings = SubResource("LabelSettings_rbmmp")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/TabContainer/Audio/CenterContainer/VBoxContainer/HFlowContainer2"]
+layout_mode = 2
+
+[node name="HSlider" type="HSlider" parent="MarginContainer/TabContainer/Audio/CenterContainer/VBoxContainer/HFlowContainer2/MarginContainer"]
+layout_mode = 2
+theme_override_icons/grabber = SubResource("DPITexture_v4ih8")
+theme_override_icons/grabber_highlight = SubResource("DPITexture_i47rn")
+theme_override_styles/slider = SubResource("StyleBoxFlat_rbmmp")
+
+[node name="HFlowContainer3" type="HSplitContainer" parent="MarginContainer/TabContainer/Audio/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/TabContainer/Audio/CenterContainer/VBoxContainer/HFlowContainer3"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/TabContainer/Audio/CenterContainer/VBoxContainer/HFlowContainer3/CenterContainer"]
+layout_mode = 2
+text = "Music"
+label_settings = SubResource("LabelSettings_rbmmp")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/TabContainer/Audio/CenterContainer/VBoxContainer/HFlowContainer3"]
+layout_mode = 2
+
+[node name="HSlider" type="HSlider" parent="MarginContainer/TabContainer/Audio/CenterContainer/VBoxContainer/HFlowContainer3/MarginContainer"]
+layout_mode = 2
+theme_override_icons/grabber = SubResource("DPITexture_v4ih8")
+theme_override_icons/grabber_highlight = SubResource("DPITexture_i47rn")
+theme_override_styles/slider = SubResource("StyleBoxFlat_rbmmp")

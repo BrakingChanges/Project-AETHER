@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://2ok8d25i0ehw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_qdrcu"]
+font_size = 48
+
+[node name="Panel" type="Panel"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="VFlowContainer" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 105.0
+
+[node name="Label" type="Label" parent="VFlowContainer"]
+layout_mode = 2
+text = "SPECIAL THANKS TO:"
+label_settings = SubResource("LabelSettings_qdrcu")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_top = 105.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="Label2" type="Label" parent="CenterContainer"]
+layout_mode = 2
+text = "AIDEN  - DEVELOPER
+MILAN -
+WILDAN -
+GABRIEL - DESIGNER"
+label_settings = SubResource("LabelSettings_qdrcu")
+horizontal_alignment = 1
