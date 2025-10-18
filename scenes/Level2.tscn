@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://d13ue4kymon4c" path="res://scenes/Player.tscn" id="5_0jmjk"]
 [ext_resource type="AudioStream" uid="uid://dth1k7nd3mgb7" path="res://assets/music/PastMusic.mp3" id="6_4p0dt"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wo48x"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4p0dt"]
 texture = ExtResource("4_xpq2v")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -230,7 +230,7 @@ texture = ExtResource("4_xpq2v")
 
 [sub_resource type="TileSet" id="TileSet_y0kc7"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_wo48x")
+sources/0 = SubResource("TileSetAtlasSource_4p0dt")
 
 [node name="Level 2" instance=ExtResource("1_qe5b6")]
 script = ExtResource("2_4p0dt")
@@ -265,6 +265,7 @@ void_line = NodePath("../Line2D")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="8"]
 stream = ExtResource("6_4p0dt")
 autoplay = true
+bus = &"Music"
 
 [connection signal="body_entered" from="Goal" to="." method="_on_goal_body_entered"]
 

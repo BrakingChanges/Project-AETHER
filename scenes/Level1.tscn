@@ -434,6 +434,7 @@ player = NodePath("../Player")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="9"]
 stream = ExtResource("7_svatc")
 autoplay = true
+bus = &"Music"
 
 [node name="Line2D" parent="." index="10"]
 points = PackedVector2Array(-31, 443, 1940, 443)
