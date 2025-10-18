@@ -19,4 +19,5 @@ Will you master both the past and future, or be lost between them forever?
 ## Installation instructions
 - Extract all provided files into one folder
 - Run the game as is. Do not change the file structure
+- To run the game, run the `Project AETHER.exe file`
 - Download the latest release from [here](https://github.com/BrakingChanges/Project-AETHER/releases/download/v1.0.0/build.zip)
