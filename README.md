@@ -15,3 +15,7 @@ Press ESC anytime to open the pause menu to adjust settings, take a breather, or
 ## ⚔️ Your Mission:
 Unravel the secrets hidden across time. Every era holds clues, enemies, and choices that shape the fate of your world.
 Will you master both the past and future, or be lost between them forever?
+
+## Installation instructions
+- Extract all provided files into one folder
+- Run the game as is. Do not change the file structure
