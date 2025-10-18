@@ -3,12 +3,15 @@ class_name PlayerController
 
 @export var speed = 10.0
 @export var jump_power = 10.0
+@export var background_sprite: Sprite2D
 
 var speed_multiplier = 30.0
 var jump_multiplier = -30.0
 var direction = 0
 
 func _physics_process(delta: float) -> void:
+	background_sprite.position = position
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
