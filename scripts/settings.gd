@@ -22,7 +22,7 @@ func _ready() -> void:
 		sfx_volume.value = config.get_value("Settings", "sfx_volume", 1)
 		music_volume.value = config.gset_value("Settings", "music_volume", 1)
 
-		
+
 
 func _on_apply_changes_button_pressed() -> void:
 	config.set_value("Settings", "fullscreen", fullscreen.toggle_mode)
@@ -30,8 +30,25 @@ func _on_apply_changes_button_pressed() -> void:
 	config.set_value("Settings", "sfx_volume", sfx_volume.value)
 	config.set_value("Settings", "music_volume", music_volume.value)
 	config.save("user://settings.cfg")
-
-
+	get_tree().change_scene_to_file("res://scenes/Main Menu.tscn")
 
 func _on_discard_changes_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/Main Menu.tscn")
+
+func _on_master_volume_slider_value_changed(value: float) -> void:
+	AudioServer.set_bus_volume_linear(AudioServer.get_bus_index("Master"), value)
+	
+
+func _on_sfx_volume_slider_value_changed(value: float) -> void:
+	AudioServer.set_bus_volume_linear(AudioServer.get_bus_index("SFX"), value)
+
+func _on_music_volume_slider_value_changed(value: float) -> void:
+	AudioServer.set_bus_volume_linear(AudioServer.get_bus_index("Music"), value)
+
+
+func _on_full_screen_toggled(toggled_on: bool) -> void:
+	print("toggled")
+	if toggled_on:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+	else:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)

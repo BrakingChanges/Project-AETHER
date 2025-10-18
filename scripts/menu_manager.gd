@@ -8,7 +8,6 @@ func _ready() -> void:
 	DiscordRPC.details = "A Game Jam Project by Prodo FC"
 	DiscordRPC.state = "Hanging out on the main menu!"
 	DiscordRPC.start_timestamp = int(Time.get_unix_time_from_system())
-	
 	DiscordRPC.refresh()
 
 

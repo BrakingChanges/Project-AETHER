@@ -160,3 +160,7 @@ theme_override_styles/slider = SubResource("StyleBoxFlat_rbmmp")
 
 [connection signal="pressed" from="HBoxContainer/MarginContainer/ApplyChangesButton" to="." method="_on_apply_changes_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/MarginContainer2/DiscardChangesButton" to="." method="_on_discard_changes_button_pressed"]
+[connection signal="toggled" from="MarginContainer/TabContainer/Graphics/CenterContainer/VBoxContainer/HFlowContainer/FullScreen" to="." method="_on_full_screen_toggled"]
+[connection signal="value_changed" from="MarginContainer/TabContainer/Audio/CenterContainer/VBoxContainer/HFlowContainer/MarginContainer/MasterVolumeSlider" to="." method="_on_master_volume_slider_value_changed"]
+[connection signal="value_changed" from="MarginContainer/TabContainer/Audio/CenterContainer/VBoxContainer/HFlowContainer2/MarginContainer/SFXVolumeSlider" to="." method="_on_sfx_volume_slider_value_changed"]
+[connection signal="value_changed" from="MarginContainer/TabContainer/Audio/CenterContainer/VBoxContainer/HFlowContainer3/MarginContainer/MusicVolumeSlider" to="." method="_on_music_volume_slider_value_changed"]
