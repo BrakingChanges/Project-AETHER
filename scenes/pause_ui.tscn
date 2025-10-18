@@ -1,0 +1,61 @@
+[gd_scene load_steps=4 format=3 uid="uid://cng3qtvb2x0qv"]
+
+[ext_resource type="Script" uid="uid://bxfgpn8acj6kf" path="res://scripts/pause_ui.gd" id="1_uwb1u"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ypbrs"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.09803922, 0.09803922, 0.09803922, 0.2901961)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_vcehk"]
+font_size = 105
+
+[node name="PauseUI" type="CanvasLayer"]
+layer = 2
+script = ExtResource("1_uwb1u")
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ypbrs")
+
+[node name="CenterContainer" type="CenterContainer" parent="Panel"]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="HBoxContainer" type="VBoxContainer" parent="Panel/CenterContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Panel/CenterContainer/HBoxContainer"]
+layout_mode = 2
+text = "PAUSED"
+label_settings = SubResource("LabelSettings_vcehk")
+
+[node name="CenterContainer" type="CenterContainer" parent="Panel/CenterContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/CenterContainer/HBoxContainer/CenterContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="ResumeButton" type="Button" parent="Panel/CenterContainer/HBoxContainer/CenterContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "RESUME"
+
+[node name="MainMenuButton" type="Button" parent="Panel/CenterContainer/HBoxContainer/CenterContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "MAIN MENU"
+
+[connection signal="pressed" from="Panel/CenterContainer/HBoxContainer/CenterContainer/HBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="Panel/CenterContainer/HBoxContainer/CenterContainer/HBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]

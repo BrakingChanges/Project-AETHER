@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://cy0j5jl4a0xpl"]
+
+[ext_resource type="Script" uid="uid://cbodj55b8x20j" path="res://scripts/special_scene.gd" id="1_qhrj6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8gg7e"]
+font_size = 52
+
+[node name="SpecialScene" type="Panel"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+script = ExtResource("1_qhrj6")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="Label" type="Label" parent="CenterContainer"]
+layout_mode = 2
+text = "THANK YOU FOR TRYING PROJECT AETHER
+STAY TUNED FOR MORE DEVELOPMENT"
+label_settings = SubResource("LabelSettings_8gg7e")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 15.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,9 +1,66 @@
-[gd_scene load_steps=3 format=3 uid="uid://c4wtjwol4kuj3"]
+[gd_scene load_steps=10 format=3 uid="uid://c4wtjwol4kuj3"]
 
 [ext_resource type="Script" uid="uid://cbywl6dhd2l6v" path="res://scripts/base_level.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://befle77x667d" path="res://scenes/player_hud.tscn" id="2_ip8pd"]
+[ext_resource type="PackedScene" uid="uid://cng3qtvb2x0qv" path="res://scenes/pause_ui.tscn" id="3_5526q"]
+[ext_resource type="Script" uid="uid://bc0aq14rithta" path="res://scripts/enemy_spawner.gd" id="4_5526q"]
 
 [sub_resource type="CircleShape2D" id="1"]
 radius = 60.133186
+
+[sub_resource type="Animation" id="Animation_5526q"]
+resource_name = "fade"
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_3nfoh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_mel1c"]
+resource_name = "unfade"
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c42m3"]
+_data = {
+&"RESET": SubResource("Animation_3nfoh"),
+&"fade": SubResource("Animation_5526q"),
+&"unfade": SubResource("Animation_mel1c")
+}
 
 [node name="BaseLevel" type="Node2D"]
 script = ExtResource("1")
@@ -12,3 +69,47 @@ script = ExtResource("1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Goal"]
 shape = SubResource("1")
+
+[node name="PlayerHUD" parent="." instance=ExtResource("2_ip8pd")]
+
+[node name="PauseUI" parent="." instance=ExtResource("3_5526q")]
+visible = false
+
+[node name="EnemySpawner" type="Node2D" parent="."]
+script = ExtResource("4_5526q")
+
+[node name="SpawnPosition" type="Marker2D" parent="EnemySpawner"]
+position = Vector2(547, 0)
+
+[node name="SpawnPosition2" type="Marker2D" parent="EnemySpawner"]
+position = Vector2(682, -19)
+
+[node name="SpawnPosition3" type="Marker2D" parent="EnemySpawner"]
+position = Vector2(790, -2)
+
+[node name="SpawnPosition4" type="Marker2D" parent="EnemySpawner"]
+position = Vector2(934, 96)
+
+[node name="Timer" type="Timer" parent="EnemySpawner"]
+wait_time = 30.0
+one_shot = true
+autostart = true
+
+[node name="Line2D" type="Line2D" parent="."]
+
+[node name="FadeAnimationUI" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="FadeAnimationUI"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="FadeAnimationUI"]
+root_node = NodePath("../ColorRect")
+libraries = {
+&"": SubResource("AnimationLibrary_c42m3")
+}
+
+[connection signal="timeout" from="EnemySpawner/Timer" to="EnemySpawner" method="_on_timer_timeout"]
+
+[editable path="PlayerHUD"]
