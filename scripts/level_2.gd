@@ -9,4 +9,6 @@ func _ready() -> void:
 
 func _on_goal_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		get_tree().change_scene_to_file("res://scenes/special_scene.tscn")
+		$FadeAnimationUI/AnimationPlayer.play("fade")
+		await $FadeAnimationUI/AnimationPlayer.animation_finished
+		get_tree().change_scene_to_file("res://scenes/Level3.tscn")

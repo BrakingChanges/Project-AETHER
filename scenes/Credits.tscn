@@ -29,8 +29,8 @@ offset_bottom = 1080.0
 [node name="Label2" type="Label" parent="CenterContainer"]
 layout_mode = 2
 text = "AIDEN  - DEVELOPER
-MILAN -
-WILDAN -
+MILAN - IDEAS
+WILDAN -DESIGNER
 GABRIEL - DESIGNER"
 label_settings = SubResource("LabelSettings_qdrcu")
 horizontal_alignment = 1

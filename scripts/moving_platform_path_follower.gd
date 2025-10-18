@@ -1,9 +1,8 @@
 extends PathFollow2D
 
 @export var speed: float = 100.0
-@export var loops: bool = true
 @export var path: Path2D
-
+@export var loops: bool = true
 var direction := 1
 
 func _process(delta):

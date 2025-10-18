@@ -12,6 +12,10 @@ var jump_multiplier = -30.0
 var direction = 0
 var health = 2
 var jumps = 0
+var locked = false
+var locked_node: Node2D = null
+var previous_locked_position: Vector2 = Vector2(0, 0)
+
 
 func _physics_process(delta: float) -> void:
 	background_sprite.position = position
@@ -48,7 +52,25 @@ func _physics_process(delta: float) -> void:
 		var collider: Node = collision.get_collider()
 		
 		if collider.is_in_group("enemy"):
-			$Timer.start()
+			$Timer.start(0.5)
+		
+		if collider.is_in_group("metro"):
+			locked = true
+			locked_node = collider
+		
+	if locked:
+		if Input.is_action_just_pressed("jump"):
+			locked = false
+		
+		if locked_node:
+			var motion = locked_node.position - previous_locked_position
+			position += motion
+			previous_locked_position = locked_node.position
+			
+		
+
+			
+			
 	
 	if health <= 0:
 		get_tree().change_scene_to_file("res://scenes/death_screen.tscn")

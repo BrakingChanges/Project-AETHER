@@ -9,6 +9,9 @@ func _on_retry_button_pressed() -> void:
 	if Globals.current_level == 2:
 		get_tree().change_scene_to_file("res://scenes/Level2.tscn")
 	
+	if Globals.current_level == 3:
+		get_tree().change_scene_to_file("res://scenes/Level3.tscn")
+	
 
 
 
